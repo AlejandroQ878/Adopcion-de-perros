@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Persona {
-    public List<Perro> perros = new ArrayList<>();
+    private List<Perro> perroAdoptado = new ArrayList<>();
     private String nombre;
     private String apellido;
     private int edad;
@@ -11,28 +11,42 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(List<Perro> perros, String nombre, String apellido, int edad, String documento) {
-        this.perros = perros;
+    public Persona(String nombre, String apellido, int edad, String documento) {
+        this.perroAdoptado = perroAdoptado;
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.documento = documento;
     }
 
-    public void adoptarPerro(Perro perros){
-
-
-        public String perroMasGrande(){
-            return "";
+    public void adoptarPerro(Perro perro){
+        if(perroAdoptado.size()<3){
+            perroAdoptado.add(perro);
+            perro.setEstado(false);
+            System.out.println("ADOPTO A "+perro.getNombre());
+        }else{
+            System.out.println("YA NO PUEDES ADOPTAR MAS PERROS");
         }
-
-    }
-    public List<Perro> getPerros() {
-        return perros;
     }
 
-    public void setPerros(List<Perro> perros) {
-        this.perros = perros;
+    public String perroMasGrande(){
+        if (perroAdoptado.get(0).getEdad()>=perroAdoptado.get(1).getEdad()&&perroAdoptado.get(0).getEdad()>=perroAdoptado.get(2).getEdad()){
+            return perroAdoptado.get(0).getNombre();
+        }
+        else if (perroAdoptado.get(1).getEdad()>=perroAdoptado.get(0).getEdad()&&perroAdoptado.get(1).getEdad()>=perroAdoptado.get(2).getEdad()){
+            return perroAdoptado.get(1).getNombre();
+        }
+        else if (perroAdoptado.get(2).getEdad()>=perroAdoptado.get(1).getEdad()&&perroAdoptado.get(2).getEdad()>=perroAdoptado.get(0).getEdad()){
+            return perroAdoptado.get(2).getNombre();
+        }else return "0";
+    }
+
+    public List<Perro> getPerro() {
+        return perroAdoptado;
+    }
+
+    public void setPerro(List<Perro> perro) {
+        this.perroAdoptado = perro;
     }
 
     public String getNombre() {
@@ -70,7 +84,7 @@ public class Persona {
     @Override
     public String toString() {
         return "Persona{" +
-                "perros=" + perros +
+                "perros=" +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", edad=" + edad +

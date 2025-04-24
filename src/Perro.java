@@ -4,20 +4,38 @@ public class Perro {
     private String raza;
     private int edad;
     private String tamaño;
+    private boolean estado;
 
-    public Perro(String nombre, String raza, int edad, String tamaño) {
+    public Perro() {
     }
 
-    public Perro(java.lang.String placa, java.lang.String nombre, java.lang.String raza, int edad, java.lang.String tamaño) {
+    public Perro(String placa, String nombre, String raza, int edad, String tamaño, boolean estado) {
         this.placa = placa;
         this.nombre = nombre;
         this.raza = raza;
         this.edad = edad;
         this.tamaño = tamaño;
+        this.estado = true;
     }
 
     public String getPlaca() {
         return placa;
+    }
+
+    public String getTamaño() {
+        return tamaño;
+    }
+
+    public void setTamaño(String tamaño) {
+        this.tamaño = tamaño;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 
     public void setPlaca(String placa) {
@@ -48,13 +66,7 @@ public class Perro {
         this.edad = edad;
     }
 
-    public String gettamaño() {
-        return tamaño;
-    }
 
-    public void settamaño(String tamaño) {
-        tamaño = tamaño;
-    }
 
     @Override
     public java.lang.String toString() {
@@ -63,7 +75,7 @@ public class Perro {
                 ", nombre='" + nombre + '\'' +
                 ", raza='" + raza + '\'' +
                 ", edad=" + edad +
-                ", String='" + tamaño + '\'' +
+                "Tamaño='" + tamaño + '\'' +
                 '}';
     }
 }
